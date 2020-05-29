@@ -46,7 +46,7 @@ import nc.integration.jei.JEIRecipeWrapperAbstract;
 import lach_01298.qmd.jei.recipe.QMDRecipeWrapper;
 import nc.recipe.NCRecipes;
 import nc.recipe.ProcessorRecipeHandler;
-import nc.util.ItemStackHelper;
+import nc.util.StackHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -140,7 +140,7 @@ public class QMDJEI implements IModPlugin
 			this.recipeHandler = recipeHandler;
 			this.recipeWrapper = recipeWrapper;
 			this.crafters = new ArrayList<ItemStack>();
-			for (Block crafter : crafters) this.crafters.add(ItemStackHelper.fixItemStack(crafter));
+			for (Block crafter : crafters) this.crafters.add(StackHelper.fixItemStack(crafter));
 			this.textureName = textureName;
 		}
 		

@@ -21,7 +21,6 @@ import lach_01298.qmd.recipe.QMDRecipeHandler;
 import lach_01298.qmd.recipes.QMDRecipes;
 import nc.multiblock.cuboidal.CuboidalPartPositionType;
 import nc.tile.internal.inventory.InventoryConnection;
-import nc.tile.internal.inventory.InventoryTileWrapper;
 import nc.tile.internal.inventory.ItemOutputSetting;
 import nc.tile.internal.inventory.ItemSorption;
 import nc.tile.inventory.ITileInventory;
@@ -43,7 +42,6 @@ public class TileTargetChamberController extends TileParticleChamberPart impleme
 private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.target_chamber_controller";
 	
 	private final @Nonnull NonNullList<ItemStack> inventoryStacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
-	private @Nonnull InventoryTileWrapper invWrapper;
 	private @Nonnull InventoryConnection[] inventoryConnections = ITileInventory.inventoryConnectionAll(Lists.newArrayList(ItemSorption.IN, ItemSorption.OUT));
 
 	
@@ -54,7 +52,6 @@ private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.target_ch
 	public TileTargetChamberController()
 	{
 		super(CuboidalPartPositionType.WALL);
-		invWrapper = new InventoryTileWrapper(this);
 	}
 
 	@Override
@@ -135,12 +132,6 @@ private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.target_ch
 	public String getName()
 	{
 		return inventoryName;
-	}
-	
-	@Override
-	public InventoryTileWrapper getInventory()
-	{
-		return invWrapper;
 	}
 	
 	@Override
@@ -241,7 +232,7 @@ private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.target_ch
 		{
 			if (!getInventoryStacks().isEmpty() && hasInventorySideCapability(side))
 			{
-				return (T) getItemHandlerCapability(side);
+				return (T) getItemHandler(side);
 			}
 			return null;
 

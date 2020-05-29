@@ -20,7 +20,6 @@ import nc.network.tile.ProcessorUpdatePacket;
 import nc.network.tile.TileUpdatePacket;
 import nc.tile.ITileGui;
 import nc.tile.internal.inventory.InventoryConnection;
-import nc.tile.internal.inventory.InventoryTileWrapper;
 import nc.tile.internal.inventory.ItemOutputSetting;
 import nc.tile.internal.inventory.ItemSorption;
 import nc.tile.inventory.ITileFilteredInventory;
@@ -45,7 +44,6 @@ public class TileAcceleratorSource extends TileAcceleratorPart implements ITileI
 {
 	private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.accelerator_source";
 	private @Nonnull InventoryConnection[] inventoryConnections = ITileInventory.inventoryConnectionAll(Arrays.asList(ItemSorption.IN, ItemSorption.OUT));
-	private @Nonnull InventoryTileWrapper invWrapper;
 	private final @Nonnull NonNullList<ItemStack> inventoryStacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
 	
 	protected Set<EntityPlayer> playersToUpdate;
@@ -53,7 +51,6 @@ public class TileAcceleratorSource extends TileAcceleratorPart implements ITileI
 	public TileAcceleratorSource()
 	{
 		super(CuboidalPartPositionType.WALL);
-		invWrapper = new InventoryTileWrapper(this);
 		
 		playersToUpdate = new ObjectOpenHashSet<EntityPlayer>();
 	}
@@ -101,12 +98,6 @@ public class TileAcceleratorSource extends TileAcceleratorPart implements ITileI
 	public void setInventoryConnections(InventoryConnection[] connections)
 	{
 		inventoryConnections = connections;
-	}
-
-	@Override
-	public InventoryTileWrapper getInventory()
-	{
-		return invWrapper;
 	}
 
 	@Override
@@ -178,7 +169,7 @@ public class TileAcceleratorSource extends TileAcceleratorPart implements ITileI
 		{
 			if (!getInventoryStacks().isEmpty() && hasInventorySideCapability(side)) 
 			{
-				return (T) getItemHandlerCapability(side);
+				return (T) getItemHandler(side);
 			}
 			return null;
 		}

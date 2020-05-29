@@ -28,7 +28,7 @@ import nc.tile.inventory.TileSidedInventory;
 import nc.tile.processor.IItemProcessor;
 import nc.tile.processor.IProcessor;
 import nc.tile.processor.TileItemProcessor;
-import nc.util.ItemStackHelper;
+import nc.util.StackHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -276,9 +276,9 @@ public class TileItemDamageFuelProcessor extends TileSidedInventory implements I
 		
 		private void useFuel(int slot)
 		{
-				if(getInventory().getStackInSlot(slot).attemptDamageItem(1, rand, null))
+				if(getStackInSlot(slot).attemptDamageItem(1, rand, null))
 				{
-					getInventory().setInventorySlotContents(slot, ItemStack.EMPTY);
+					setInventorySlotContents(slot, ItemStack.EMPTY);
 				}	
 		}
 

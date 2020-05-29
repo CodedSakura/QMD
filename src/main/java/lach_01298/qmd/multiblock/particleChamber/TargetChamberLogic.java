@@ -415,13 +415,13 @@ public class TargetChamberLogic extends ParticleChamberLogic
 		ItemStack product = recipeInfo.getRecipe().getItemProducts().get(0).getStack();
 	
 		
-		if (cont.getInventory().getStackInSlot(1) == ItemStack.EMPTY)
+		if (cont.getStackInSlot(1) == ItemStack.EMPTY)
 		{	
 			return true;
 		}
-		else if (cont.getInventory().getStackInSlot(1).isItemEqual(product))
+		else if (cont.getStackInSlot(1).isItemEqual(product))
 		{
-			int count = cont.getInventory().getStackInSlot(1).getCount();
+			int count = cont.getStackInSlot(1).getCount();
 			if (count + product.getCount() <= product.getMaxStackSize())
 			{
 				return true;	
@@ -438,39 +438,39 @@ public class TargetChamberLogic extends ParticleChamberLogic
 			TileTargetChamberController cont = (TileTargetChamberController) getChamber().controller;
 			ItemStack product = recipeInfo.getRecipe().getItemProducts().get(0).getStack();
 
-			if (cont.getInventory().getStackInSlot(1) == ItemStack.EMPTY)
+			if (cont.getStackInSlot(1) == ItemStack.EMPTY)
 			{
-				cont.getInventory().setInventorySlotContents(1, product);
-				if(cont.getInventory().getStackInSlot(0).getCount() -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount() <= 0)
+				cont.setInventorySlotContents(1, product);
+				if(cont.getStackInSlot(0).getCount() -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount() <= 0)
 				{
-					cont.getInventory().setInventorySlotContents(0, ItemStack.EMPTY);
+					cont.setInventorySlotContents(0, ItemStack.EMPTY);
 					
 				}
 				else
 				{
-					int inputCount = cont.getInventory().getStackInSlot(0).getCount();
-					cont.getInventory().getStackInSlot(0).setCount(inputCount -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount());
+					int inputCount = cont.getStackInSlot(0).getCount();
+					cont.getStackInSlot(0).setCount(inputCount -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount());
 					
 				}
 				cont.markDirtyAndNotify();
 				
 			}
-			else if (cont.getInventory().getStackInSlot(1).isItemEqual(product))
+			else if (cont.getStackInSlot(1).isItemEqual(product))
 			{
-				int count = cont.getInventory().getStackInSlot(1).getCount();
+				int count = cont.getStackInSlot(1).getCount();
 				if (count + product.getCount() <= product.getMaxStackSize())
 				{
-					cont.getInventory().getStackInSlot(1).setCount(count + product.getCount());
-					if(cont.getInventory().getStackInSlot(0).getCount() -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount() <= 0)
+					cont.getStackInSlot(1).setCount(count + product.getCount());
+					if(cont.getStackInSlot(0).getCount() -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount() <= 0)
 					{
-						cont.getInventory().setInventorySlotContents(0, ItemStack.EMPTY);
+						cont.setInventorySlotContents(0, ItemStack.EMPTY);
 						
 						
 					}
 					else
 					{
-						int inputCount = cont.getInventory().getStackInSlot(0).getCount();
-						cont.getInventory().getStackInSlot(0).setCount(inputCount -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount());
+						int inputCount = cont.getStackInSlot(0).getCount();
+						cont.getStackInSlot(0).setCount(inputCount -recipeInfo.getRecipe().getItemIngredients().get(0).getStack().getCount());
 						
 					}
 					cont.markDirtyAndNotify();
@@ -571,7 +571,7 @@ public class TargetChamberLogic extends ParticleChamberLogic
 	{
 		TileTargetChamberController cont = (TileTargetChamberController) getChamber().controller;
 		ArrayList<ItemStack> items = new ArrayList<ItemStack>();
-		ItemStack item =cont.getInventory().getStackInSlot(0).copy();
+		ItemStack item =cont.getStackInSlot(0).copy();
 		items.add(item);
 		ArrayList<ParticleStack> particles = new ArrayList<ParticleStack>();
 		particles.add(getChamber().beams.get(0).getParticleStack());

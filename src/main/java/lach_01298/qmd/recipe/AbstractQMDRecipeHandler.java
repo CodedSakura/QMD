@@ -38,7 +38,7 @@ import nc.recipe.ingredient.ItemIngredient;
 import nc.recipe.ingredient.OreIngredient;
 import nc.tile.internal.fluid.Tank;
 import nc.util.FluidRegHelper;
-import nc.util.ItemStackHelper;
+import nc.util.StackHelper;
 import nc.util.OreDictHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.RecipeItemHelper;
@@ -473,7 +473,7 @@ public abstract class AbstractQMDRecipeHandler<RECIPE extends IQMDRecipe>
 	public boolean isValidItemInput(ItemStack stack, ItemStack slotStack, List<ItemStack> otherInputs)
 	{
 		if (otherInputs.isEmpty()
-				|| (stack.isItemEqual(slotStack) && ItemStackHelper.areItemStackTagsEqual(stack, slotStack)))
+				|| (stack.isItemEqual(slotStack) && StackHelper.areItemStackTagsEqual(stack, slotStack)))
 		{
 			return isValidItemInput(stack);
 		}

@@ -17,7 +17,6 @@ import nc.tile.fluid.ITileFluid;
 import nc.tile.processor.IProcessor;
 import nc.tile.processor.IUpgradable;
 import nc.util.BlockHelper;
-import nc.util.FluidHelper;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
@@ -112,7 +111,7 @@ public class BlockQMDProcessor extends BlockSidedTile implements IActivatable, I
 		if (tile instanceof ITileFluid) {
 			if (world.isRemote) return true;
 			ITileFluid tileFluid = (ITileFluid) tile;
-			boolean accessedTanks = FluidHelper.accessTanks(player, hand, facing, tileFluid);
+			boolean accessedTanks = BlockHelper.accessTanks(player, hand, facing, tileFluid);
 			if (accessedTanks) {
 				if (tile instanceof IProcessor) {
 					((IProcessor) tile).refreshRecipe();

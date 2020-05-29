@@ -24,7 +24,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ContainerTargetChamberController extends ContainerMultiblockController<ParticleChamber, IParticleChamberController>
 {
 	protected final QMDRecipeHandler recipeHandler;
-	public final @Nullable IInventory invWrapper;
 	
 	protected int inputSlotsSize;
 	protected int outputSlotsSize;
@@ -35,7 +34,6 @@ public class ContainerTargetChamberController extends ContainerMultiblockControl
 	{
 		super(player, tile);
 		this.tile= tile;
-		invWrapper = tile.getInventory();
 		this.recipeHandler = QMDRecipes.target_chamber;
 		
 		this.inputSlotsSize = 1;

@@ -17,7 +17,6 @@ import nc.config.NCConfig;
 import nc.multiblock.cuboidal.CuboidalPartPositionType;
 import nc.multiblock.fission.FissionReactor;
 import nc.tile.internal.inventory.InventoryConnection;
-import nc.tile.internal.inventory.InventoryTileWrapper;
 import nc.tile.internal.inventory.ItemOutputSetting;
 import nc.tile.internal.inventory.ItemSorption;
 import nc.tile.inventory.ITileInventory;
@@ -36,8 +35,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 public class TileParticleChamberPort extends TileParticleChamberPart implements ITileInventory
 {
 	
-	private final @Nonnull NonNullList<ItemStack> inventoryStacks = NonNullList.create(); 
-	private @Nonnull InventoryTileWrapper invWrapper;
+	private final @Nonnull NonNullList<ItemStack> inventoryStacks = NonNullList.create();
 	private TileTargetChamberController controller;
 	
 	private final @Nonnull String inventoryName = QMD.MOD_ID + ".container.particle_chamber_port";
@@ -46,7 +44,6 @@ public class TileParticleChamberPort extends TileParticleChamberPart implements 
 	public TileParticleChamberPort()
 	{
 		super(CuboidalPartPositionType.WALL);
-		invWrapper = new InventoryTileWrapper(this);
 	}
 
 	
@@ -99,13 +96,6 @@ public class TileParticleChamberPort extends TileParticleChamberPart implements 
 	}
 
 	@Override
-	public @Nonnull  InventoryTileWrapper getInventory()
-	{
-		return controller == null ? invWrapper : controller.getInventory();
-		
-	}
-
-	@Override
 	public ItemOutputSetting getItemOutputSetting(int slot)
 	{
 		return ItemOutputSetting.DEFAULT;
@@ -154,7 +144,7 @@ public class TileParticleChamberPort extends TileParticleChamberPart implements 
 		{
 			if (!getInventoryStacks().isEmpty() && hasInventorySideCapability(side))
 			{
-				return (T) getItemHandlerCapability(side);
+				return (T) getItemHandler(side);
 			}
 			return null;
 

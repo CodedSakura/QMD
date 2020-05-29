@@ -16,7 +16,7 @@ import nc.multiblock.fission.salt.SaltFissionVesselSetting;
 import nc.recipe.ProcessorRecipeHandler;
 import nc.tile.internal.fluid.TankSorption;
 import nc.tile.internal.inventory.InventoryConnection;
-import nc.tile.internal.inventory.InventoryTileWrapper;
+//import nc.tile.internal.inventory.InventoryTileWrapper;
 import nc.tile.internal.inventory.ItemOutputSetting;
 import nc.tile.inventory.ITileInventory;
 import nc.util.BlockPosHelper;

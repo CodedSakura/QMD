@@ -28,7 +28,7 @@ import nc.recipe.vanilla.recipe.ShapedFluidRecipe;
 import nc.recipe.vanilla.recipe.ShapelessArmorRadShieldingRecipe;
 import nc.recipe.vanilla.recipe.ShapelessFluidRecipe;
 import nc.util.ArmorHelper;
-import nc.util.ItemStackHelper;
+import nc.util.StackHelper;
 import nc.util.NCUtil;
 import nc.util.OreDictHelper;
 import nc.util.RegistryHelper;
@@ -226,7 +226,7 @@ public class QMDCraftingRecipeHandler
 	{
 		if (out == null || Lists.newArrayList(inputs).contains(null))
 			return;
-		ItemStack outStack = ItemStackHelper.fixItemStack(out);
+		ItemStack outStack = StackHelper.fixItemStack(out);
 		if (!outStack.isEmpty() && inputs != null)
 		{
 			String outName = outStack.getTranslationKey();

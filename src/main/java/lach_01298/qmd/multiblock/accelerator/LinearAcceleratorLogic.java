@@ -622,9 +622,9 @@ public class LinearAcceleratorLogic extends AcceleratorLogic
 	{
 		if(tick >= 20)
 		{
-			if(source.getInventory().getStackInSlot(0).attemptDamageItem(1, rand, null))
+			if(source.getStackInSlot(0).attemptDamageItem(1, rand, null))
 			{
-				source.getInventory().setInventorySlotContents(0, ItemStack.EMPTY);
+				source.setInventorySlotContents(0, ItemStack.EMPTY);
 			}
 			tick = 0;
 		}
@@ -638,7 +638,7 @@ public class LinearAcceleratorLogic extends AcceleratorLogic
 	protected void refreshRecipe() 
 	{
 		ArrayList<ItemStack> items = new ArrayList<ItemStack>();
-		ItemStack item =source.getInventory().getStackInSlot(0).copy();
+		ItemStack item =source.getStackInSlot(0).copy();
 		item.setItemDamage(0);
 		items.add(item);
 		recipeInfo = accelerator_source.getRecipeInfoFromInputs(items, new ArrayList<Tank>(), new ArrayList<ParticleStack>());
