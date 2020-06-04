@@ -134,9 +134,9 @@ public class ParticleChamber extends CuboidalMultiblock<IParticleChamberPart, Pa
 	}
 
 	@Override
-	protected void onMachineAssembled(boolean wasAssembled)
+	protected void onMachineAssembled()
 	{
-		logic.onMachineAssembled(wasAssembled);
+		logic.onMachineAssembled();
 		
 	}
 

@@ -100,7 +100,7 @@ public class AcceleratorLogic extends MultiblockLogic<Accelerator, AcceleratorLo
 	// Multiblock Methods
 	
 	@Override
-	public void onMachineAssembled(boolean wasAssembled) 
+	public void onMachineAssembled()
 	{
 		onAcceleratorFormed();
 	}

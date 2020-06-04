@@ -90,9 +90,9 @@ public class Pipe extends PipeMultiblock<IPipePart, PipeUpdatePacket> implements
 	}
 
 	@Override
-	protected void onMachineAssembled(boolean wasAssembled)
+	protected void onMachineAssembled()
 	{
-		logic.onMachineAssembled(wasAssembled);
+		logic.onMachineAssembled();
 	}
 
 	@Override

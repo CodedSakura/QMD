@@ -69,7 +69,7 @@ public class ParticleChamberLogic extends MultiblockLogic<ParticleChamber, Parti
 	}
 
 	@Override
-	public void onMachineAssembled(boolean wasAssembled)
+	public void onMachineAssembled()
 	{
 		onChamberFormed();
 	}

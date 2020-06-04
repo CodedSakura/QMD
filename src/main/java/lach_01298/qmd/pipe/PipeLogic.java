@@ -51,7 +51,7 @@ public class PipeLogic extends MultiblockLogic<Pipe, PipeLogic, IPipePart, PipeU
 	}
 
 	@Override
-	public void onMachineAssembled(boolean wasAssembled)
+	public void onMachineAssembled()
 	{
 		onPipeFormed();
 	}

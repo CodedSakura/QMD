@@ -463,9 +463,9 @@ public class Accelerator extends CuboidalOrToroidalMultiblock<IAcceleratorPart, 
 	}
 
 	@Override
-	protected void onMachineAssembled(boolean wasAssembled)
+	protected void onMachineAssembled()
 	{
-		logic.onMachineAssembled(wasAssembled);
+		logic.onMachineAssembled();
 	}
 
 	@Override
